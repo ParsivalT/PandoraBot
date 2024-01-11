@@ -1,5 +1,5 @@
 # Modulo responsavel por Gerenciar o funcionamento do BOT
-from modulos.utils import *
+from core.utils import *
 
 # Função para facilitar a ultilização do telegram-bot
 class Bot:

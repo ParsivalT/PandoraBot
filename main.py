@@ -1,4 +1,4 @@
-from modulos.bot import Bot
+from core.bot import Bot
 
 pandoraBot = Bot()
 
