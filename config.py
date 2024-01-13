@@ -12,8 +12,10 @@ import requests
 
 # Configurando o Formato de Exibição dos Logs e Instanciando a Classe.
 LOG_FORMAT = 'Data/Hora: %(asctime)s | LEVEL:%(levelname)s | Mensagem:%(message)s'
-logging.basicConfig(filename="relatorio.log", level=logging.INFO, format=LOG_FORMAT)
+logging.basicConfig(filename="relatorio.log", level=logging.DEBUG, format=LOG_FORMAT)
 LOG = logging.getLogger()
 
 # Crregando as Variaveis de Ambiente.
 load_dotenv()
+
+TOKEN = os.getenv("TOKEN")

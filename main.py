@@ -1,6 +1,5 @@
-from core.bot import Bot
+import core.telegram as bot
 
-pandoraBot = Bot()
 
-if "__main__" == __name__:
-    pandoraBot.run()
+if __name__ == '__main__':
+   bot.run()
