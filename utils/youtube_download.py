@@ -1,8 +1,7 @@
 from pytube import YouTube
-import os
 from pathlib import Path
-import tempfile
 import shutil
+import config 
 
 def youtube2mp3(url, bot, message):
     # URL de entrada do usuário
@@ -10,19 +9,20 @@ def youtube2mp3(url, bot, message):
     chat_id = message.chat.id
 
     # Criar um diretório temporário
-    temp_dir = tempfile.mkdtemp()
+    temp_dir = config.tempfile.mkdtemp()
 
     try:
         yt = YouTube(url)
         # Baixar o arquivo
 
         # Extrair áudio com qualidade de 160kbps do vídeo
+        bot.reply_to(message, "Iniciando Download")
         video = yt.streams.filter(abr='160kbps').last()
 
         out_file = video.download(output_path=temp_dir)
-        base, ext = os.path.splitext(out_file)
+        base, ext = config.os.path.splitext(out_file)
         new_file = Path(f'{base}.mp3')
-        os.rename(out_file, new_file)
+        config.os.rename(out_file, new_file)
 
         # Enviar o arquivo para o Telegram
         with open(new_file, 'rb') as audio_file:

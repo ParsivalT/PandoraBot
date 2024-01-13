@@ -12,7 +12,7 @@ is_running = True
 
 @bot.message_handler(commands=["menu"])
 def menu(message):
-    bot.reply_to(message, "**OI**, como voce esta ", parse_mode="Markdown")
+    bot.reply_to(message, Messages.menu.help, parse_mode="Markdown")
 
 
 @bot.message_handler(commands=["shutdown"])
@@ -23,8 +23,8 @@ def shutdown(message):
     sys.exit("Bot encerrado forcadamente")
 
 
-@bot.message_handler(commands=["get_mp3"])
-def get_mp3(message):
+@bot.message_handler(commands=["gmusic"])
+def gmusic(message):
     url = message.text[9:]
 
     youtube2mp3(url, bot=bot, message=message)
